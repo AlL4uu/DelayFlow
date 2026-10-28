@@ -1,9 +1,0 @@
-server:
-  port: "8080"
-
-mysql:
-  host: "172.17.61.209"
-  port: "3306"
-  database: "delayflow"
-  username: "df"
-  password: "abcd1234"
