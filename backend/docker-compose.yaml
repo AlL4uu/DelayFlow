@@ -1,0 +1,27 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: delayflow-mysql
+    environment:
+      # root 只能用 MYSQL_ROOT_PASSWORD，不能写进 MYSQL_USER
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: delayflow
+      MYSQL_USER: df
+      MYSQL_PASSWORD: abcd1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # 首次初始化才执行（按文件名排序）
+      - ./sql:/docker-entrypoint-initdb.d
+      # 客户端/服务端默认 utf8mb4，避免 init 脚本中文乱码
+      - ./mysql/conf.d:/etc/mysql/conf.d
+    command: ["--character-set-server=utf8mb4","--collation-server=utf8mb4_unicode_ci"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  mysql_data:

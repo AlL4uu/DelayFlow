@@ -1,0 +1,127 @@
+# ==========================================
+# 1. 操作系统与编辑器 (OS & IDE)
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE 配置
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+
+# ==========================================
+# 2. 通用与日志 (General & Logs)
+# ==========================================
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 环境变量文件 (非常重要！千万不要把数据库密码、API Key 提交上去)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# 缓存
+.cache/
+.temp/
+.tmp/
+
+
+# ==========================================
+# 3. Node.js & 前端 (React + TypeScript)
+# ==========================================
+# 依赖包目录 (绝对不要提交)
+node_modules/
+.pnp
+.pnp.js
+
+# 构建输出目录
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# TypeScript 编译缓存
+*.tsbuildinfo
+.tsbuildinfo
+
+# 测试覆盖率
+coverage/
+*.lcov
+
+# 前端工具链缓存
+.eslintcache
+.stylelintcache
+.parcel-cache/
+
+# Vite 缓存 (如果使用的是 Vite)
+.vite/
+
+
+# ==========================================
+# 4. Go 语言 (Golang)
+# ==========================================
+# 编译后的可执行文件
+# (注意：这里假设你的 Go 可执行文件和 main.go 同级，如果在 /bin 目录，请改为 /bin/)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go 编译生成的二进制文件（不带后缀的文件）
+# 如果你知道编译后的具体文件名，比如 learn-api，可以直接写 /learn-api
+# 这里提供一个通用的，防止把本地编译的产物传上去
+# (如果你是在 backend 目录下跑 go build)
+/backend/learn
+/backend/main
+
+# Go 依赖与工作区
+# (通常只有做本地多模块开发时才需要，一般不建议把 go.work 提交上去)
+go.work
+go.work.sum
+
+# 注意：go.sum 和 go.mod 是必须提交的，所以这里千万不要写 *.sum
+
+
+# ==========================================
+# 5. 数据库与本地数据
+# ==========================================
+# 常见的本地数据库文件
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# 如果你在本地跑 Redis 或 MySQL 的持久化数据
+data/
+volumes/
+
+# ==========================================
+# 6. 其他临时文件
+# ==========================================
+# 压缩包
+*.zip
+*.tar.gz
+*.rar
